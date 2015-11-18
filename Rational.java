@@ -10,7 +10,7 @@ public class Rational {
     public Rational(int x, int y) {
 	this();
 	if (y == 0) {
-	    System.out.println("You cannot have a denominator of 0.");
+	    System.out.println("You cannot have a denominator of 0. Your rational number has automatically been set to 0/1.");
 	}
 	else {
 	    num = x;
@@ -24,8 +24,8 @@ public class Rational {
 	return retStr;
     }
 
-    public float floatValue() {
-        return (num * (1.0f) / denom);
+    public double floatValue() {
+        return ((double)num / denom);
     }
 
     public void multiply(Rational x) {
