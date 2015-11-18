@@ -1,16 +1,16 @@
 public class Rational {
 
-    private double num, denom;
+    private int num, denom;
 
     public Rational() {
 	num = 0;
 	denom = 1;
     }
 
-    public Rational(double x, double y) {
-	if (y = 0) {
+    public Rational(int x, int y) {
+	this();
+	if (y == 0) {
 	    System.out.println("You cannot have a denominator of 0.");
-	    this();
 	}
 	else {
 	    num = x;
@@ -21,17 +21,27 @@ public class Rational {
     public String toString() {
 	String retStr = "";
 	retStr += num + "/" + denom;
+	return retStr;
     }
 
-    public float floatValue() {
+    /*public float floatValue() {
 	//implementation here
-    }
+	}*/
 
     public void multiply(Rational x) {
-	//implementation here
+        num *= x.num;
+	denom *= x.denom;
     }
 
     public void divide(Rational x) {
-	//implementation here
+        num *= x.denom;
+	denom *= x.num;
+    }
+
+    public static void main(String[] args){
+	Rational r = new Rational(2,3);
+	Rational s = new Rational(1,2);
+	r.multiply(s);
+	System.out.println(r);
     }
 }
