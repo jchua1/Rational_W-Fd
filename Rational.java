@@ -24,9 +24,9 @@ public class Rational {
 	return retStr;
     }
 
-    /*public float floatValue() {
-	//implementation here
-	}*/
+    public float floatValue() {
+        return (num * (1.0f) / denom);
+    }
 
     public void multiply(Rational x) {
         num *= x.num;
@@ -43,5 +43,7 @@ public class Rational {
 	Rational s = new Rational(1,2);
 	r.multiply(s);
 	System.out.println(r);
+	System.out.println(s);
+	System.out.println(r.floatValue());
     }
 }
