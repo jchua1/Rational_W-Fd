@@ -56,9 +56,21 @@ public class Rational {
     public static void main(String[] args){
 	Rational r = new Rational(2,3);
 	Rational s = new Rational(1,2);
+	System.out.println(r.floatValue());
+	System.out.println(s.floatValue());
 	r.multiply(s);
 	System.out.println(r);
 	System.out.println(s);
 	System.out.println(r.floatValue());
+
+	Rational t = new Rational();
+	Rational u = new Rational(1,0);
+	Rational v = new Rational(5,1);
+	System.out.println(t);
+	System.out.println(u);
+	System.out.println(v);
+	System.out.println(v.floatValue());
+	u.divide(v);
+	System.out.println(u);
     }
 }
