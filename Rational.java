@@ -53,18 +53,51 @@ public class Rational {
 	denom *= x.num;
     }
 
-    //adds the numerator with that of the given Rational after finding common d$
+    //num becomes the sum of two products
+    //first prod: this numerator and the given Rational's denominator
+    //second prod: the given Rational's numerator and this denominator
+    //this denominator becomes the product of this one and the other one
     public void add(Rational x) {
         num = (num * x.denom) + (x.num * denom);
         denom *= x.denom;
     }
 
-    //subtracts the numerator with that of the given Rational after finding com$
+    //num becomes the difference between two products
+    //first prod: this numerator and the given Rational's denominator
+    //second prod: the given Rational's numerator and this denominator
+    //this denominator becomes the product of this one and the other one
     public void subtract(Rational x) {
         num = (num * x.denom) - (x.num * denom);
         denom *= x.denom;
     }
 
+    //uses local variables to store num and denom so that they are not altered
+    //divides tracker by b and if the remainder is not 0,
+    //tracker is set to the value of a, a to b, and b to the remainder
+    //process is continued until b, the remainder, is 0
+    //if b is 0, then a is the gcd
+    public int gcd(){
+	int tracker = num;
+	int a = num;
+	int b = denom;
+	while (b != 0){
+	    tracker = a;
+	    a = b;
+	    b = tracker%b;
+	}
+	return a;
+    }
+
+    //stores value of gcd() in var gcd so that it need not be run more than once
+    //if the gcd is not 1, then both num and denom are divided by it
+    //otherwise, nothing is changed
+    public void reduce() {
+	int gcd = gcd();
+	if (gcd != 1) {
+	    num /= gcd;
+	    denom /= gcd;
+	}
+    }
 
     public static void main(String[] args){
 	Rational r = new Rational(2,3);
@@ -96,5 +129,24 @@ public class Rational {
         x.subtract(y);
         System.out.println(x);
 
+	Rational c = new Rational(36,45);
+	Rational d = new Rational(45,36);
+	System.out.println(c.gcd());
+	System.out.println(d.gcd());
+	c.reduce();
+	System.out.println(c);
+
+	Rational e = new Rational(2,5);
+	e.reduce();
+	System.out.println(e);
+
+	Rational f = new Rational(2,3);
+	Rational g = new Rational(1,2);
+	Rational h = new Rational(4,18);
+	f.add(g);
+	System.out.println(f);
+	System.out.println(g);
+	h.reduce();
+	System.out.println(h);
     }
 }
