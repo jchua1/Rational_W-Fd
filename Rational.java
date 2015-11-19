@@ -53,6 +53,19 @@ public class Rational {
 	denom *= x.num;
     }
 
+    //adds the numerator with that of the given Rational after finding common d$
+    public void add(Rational x) {
+        num = (num * x.denom) + (x.num * denom);
+        denom *= x.denom;
+    }
+
+    //subtracts the numerator with that of the given Rational after finding com$
+    public void subtract(Rational x) {
+        num = (num * x.denom) - (x.num * denom);
+        denom *= x.denom;
+    }
+
+
     public static void main(String[] args){
 	Rational r = new Rational(2,3);
 	Rational s = new Rational(1,2);
@@ -72,5 +85,16 @@ public class Rational {
 	System.out.println(v.floatValue());
 	u.divide(v);
 	System.out.println(u);
+
+        Rational a = new Rational(2,5);
+        Rational b = new Rational(1,3);
+        a.add(b);
+        System.out.println(a);
+
+        Rational x = new Rational(2,5);
+        Rational y = new Rational(1,3);
+        x.subtract(y);
+        System.out.println(x);
+
     }
 }
