@@ -99,6 +99,41 @@ public class Rational {
 	}
     }
 
+    //overloaded gcd method that takes two integers
+    //divides tracker by d and if the remainder is not 0,
+    //tracker is set to the value of n, n to d, and d to the remainder
+    //process is continued until d, the remainder, is 0
+    //if d is 0, then n is the gcd
+    public static int gcd(int n, int d) {
+	int tracker = n;
+	while (d != 0) {
+	    tracker = n;
+	    n = d;
+	    d = tracker%d;
+	}
+	return n;
+    }
+
+    //stores floatValues of calling Rational and given Rational in vars r1 and r2
+    //if r1 == r2, then 0 is returned
+    //if r1 > r2, then 1 is returned
+    //if r1 < r2, then -1 is returned
+    public int compareTo(Rational x) {
+	double r1 = floatValue();
+	double r2 = x.floatValue();
+	int retInt = 0;
+	if (r1 == r2) {
+	    retInt = 0;
+	}
+	else if (r1 > r2) {
+	    retInt = 1;
+	}
+	else if (r1 < r2) {
+	    retInt = -1;
+	}
+	return retInt;
+    }
+
     public static void main(String[] args){
 	Rational r = new Rational(2,3);
 	Rational s = new Rational(1,2);
@@ -148,5 +183,18 @@ public class Rational {
 	System.out.println(g);
 	h.reduce();
 	System.out.println(h);
+
+	System.out.println(gcd(2,5));
+	System.out.println(gcd(3,6));
+	System.out.println(gcd(36,45));
+
+	Rational i = new Rational(1,2);
+	Rational j = new Rational(2,3);
+	System.out.println(j.compareTo(i));
+	System.out.println(i.compareTo(j));
+	Rational k = new Rational(1,2);
+	Rational l = new Rational(2,4);
+	System.out.println(i.compareTo(k));
+	System.out.println(k.compareTo(l));
     }
 }
