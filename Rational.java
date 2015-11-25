@@ -1,8 +1,8 @@
 /*
-  Team W-Fd -- Jason Chua, Jiawei Chen
+  Team W-Fd -- Jason Chua, Dhruba Roy
   APCS1 pd9
-  HW33 -- Do You Even Add, Bro?
-  2015-11-18
+  HW37 -- Rational Equality
+  2015-11-24
 */
 
 public class Rational {
@@ -211,5 +211,12 @@ public class Rational {
 	Rational l = new Rational(2,4);
 	System.out.println(i.compareTo(k));
 	System.out.println(k.compareTo(l));
+
+	Rational m = new Rational(-1,2);
+	Rational n = new Rational(2,-4);
+	System.out.println(i.equals(k));
+	System.out.println(k.equals(l));
+	System.out.println(j.equals(k));
+	System.out.println(m.equals(n));
     }
 }
