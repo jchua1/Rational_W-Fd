@@ -134,6 +134,21 @@ public class Rational {
 	return retInt;
     }
 
+    //overridden equals method
+    public boolean equals(Object x) {
+	//initializes retVal to boolean result of this == x
+        boolean retVal = this == x;
+	//if retVal is true, the if statement is not run and retVal is returned
+        if (!retVal) {
+	    //retVal becomes the boolean result of 
+	    //whether x is an instance of rational
+	    //and the comparison of the rationals is 0
+            retVal = x instanceof Rational
+                && (this.compareTo((Rational)x) == 0);
+        }
+        return retVal;
+    }
+
     public static void main(String[] args){
 	Rational r = new Rational(2,3);
 	Rational s = new Rational(1,2);
